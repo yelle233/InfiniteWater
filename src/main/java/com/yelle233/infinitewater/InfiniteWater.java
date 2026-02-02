@@ -1,5 +1,9 @@
 package com.yelle233.infinitewater;
 
+import com.simibubi.create.api.stress.BlockStressValues;
+import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.infrastructure.config.CStress;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import org.slf4j.Logger;
@@ -34,9 +38,12 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 
+
+
 @Mod(InfiniteWater.MODID)
 public class InfiniteWater {
     public static final String MODID = "infinitewater";
+
 
     public InfiniteWater(IEventBus modEventBus, ModContainer modContainer) {
         InfiniteWaterBlockRegister.BLOCKS.register(modEventBus);
@@ -44,6 +51,7 @@ public class InfiniteWater {
         InfiniteWaterTabRegister.TABS.register(modEventBus);
         modEventBus.addListener(this::registerCapabilities);
         InfiniteWaterBlockEntity.BLOCK_ENTITY_TYPES.register(modEventBus);
+
     }
 
     private void registerCapabilities(RegisterCapabilitiesEvent event) {
@@ -53,5 +61,8 @@ public class InfiniteWater {
                 (be, side) -> be.getFluidHandler(side)
         );
     }
+
+
+
 
 }

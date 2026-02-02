@@ -17,6 +17,6 @@ public class InfiniteWaterTabRegister {
                     .icon(() -> new ItemStack(InfiniteWaterBlockRegister.INFINITE_WATER_BLOCK.get()))
                     .title(Component.translatable("itemGroup.infinitewater"))
                     .displayItems((parameters, output) -> {
-                        output.accept(InfiniteWaterBlockRegister.INFINITE_WATER_BLOCK);
+                        output.accept(InfiniteWaterBlockRegister.INFINITE_WATER_BLOCK.get());
                     }).build());
 }

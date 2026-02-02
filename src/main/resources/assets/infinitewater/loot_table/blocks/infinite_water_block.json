@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "infinitewater:block",
+          "name": "infinitewater:block/infinite_water_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "infinitewater:block/infinite_water_block"
+}

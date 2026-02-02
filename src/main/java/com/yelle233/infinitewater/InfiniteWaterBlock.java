@@ -39,7 +39,9 @@ public class InfiniteWaterBlock extends KineticBlock implements EntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return type == InfiniteWaterBlockEntity.INFINITE_WATER_BLOCK_ENTITY.get()
-                ? (lvl, p, st, be) -> ((InfiniteWaterBlockEntity) be).tick()
-                : null;
+                        ? (lvl, p, st, be) -> ((InfiniteWaterBlockEntity) be).tick() : null;
+
     }
+
+
 }

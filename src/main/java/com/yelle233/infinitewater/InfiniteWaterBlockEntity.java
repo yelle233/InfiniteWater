@@ -3,7 +3,11 @@ package com.yelle233.infinitewater;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,9 +20,18 @@ import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class InfiniteWaterBlockEntity extends KineticBlockEntity {
+
+//    private float lastImpact = -1;
+    private static final float SPEED_THRESHOLD = 200f;
+
+    private float cachedRemainingStress = 0;
+    private boolean stressCacheValid = false;
+    private boolean canOutputClient = false;
+
 
     public InfiniteWaterBlockEntity(BlockPos pos, BlockState blockState) {
         super(INFINITE_WATER_BLOCK_ENTITY.get(), pos, blockState);
@@ -47,7 +60,8 @@ public class InfiniteWaterBlockEntity extends KineticBlockEntity {
 
         @Override
         public FluidStack getFluidInTank(int tank) {
-            // 给外部显示“很多水”，不代表真的存了这么多
+            if (!isRunning())
+                return FluidStack.EMPTY;
             return new FluidStack(Fluids.WATER, Integer.MAX_VALUE);
         }
 
@@ -79,7 +93,7 @@ public class InfiniteWaterBlockEntity extends KineticBlockEntity {
     };
 
     private boolean isRunning() {
-        return getSpeed() != 0 && !isOverStressed();
+        return hasEnoughRemainingStress();
     }
 
     public IFluidHandler getFluidHandler(@Nullable Direction side) {
@@ -88,10 +102,30 @@ public class InfiniteWaterBlockEntity extends KineticBlockEntity {
 
     @Override
     public float calculateStressApplied() {
-        float rpm = Math.abs(getSpeed());
-        if (rpm < 1e-4f)
-            return 0;
-        float fixedSU = 1000000.0f;
-        return fixedSU / rpm;
+        this.lastStressApplied=5000.0f;
+        return 5000.0f;
     }
+
+
+    private boolean hasEnoughRemainingStress() {
+        if (level == null || level.isClientSide) return false;
+        if (getSpeed() == 0 || isOverStressed()) return false;
+        return Math.abs(getSpeed()) >= SPEED_THRESHOLD;
+    }
+
+    @Override
+    public boolean addToTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
+        float currentSpeed = Math.abs(getSpeed());
+        boolean active = currentSpeed >= SPEED_THRESHOLD;
+        if(!active) {
+            tooltip.add(Component.literal("显然转速不足，无法输出") );
+        }
+        return true;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+    }
+
 }

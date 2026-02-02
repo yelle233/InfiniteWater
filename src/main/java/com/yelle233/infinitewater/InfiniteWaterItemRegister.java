@@ -8,6 +8,4 @@ public class InfiniteWaterItemRegister {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, InfiniteWater.MODID);
 
-
-
 }
