@@ -76,11 +76,11 @@ public class InfiniteWaterBlockItem extends BlockItem {
         }
 
 
-        StringBuilder bar = new StringBuilder("[");
+        StringBuilder bar = new StringBuilder(" ");
         for (int i = 0; i < 4; i++) {
             bar.append(i < level ? "█" : "░");
         }
-        bar.append("] ");
+        bar.append(" ");
 
         bar.append(Component.translatable(translationKey).getString());
 
