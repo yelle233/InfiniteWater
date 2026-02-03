@@ -3,6 +3,8 @@
   "block.infinitewater.infinite_water_block": "无限水机器",
   "infinitewater.infinite_water_block.tooltip1": "§6应力不足§f,无法供应水源",
 
+  "item.infinitewater.water_storage_core": "§6储水核心",
+  "item.infinitewater.incomplete_water_storage_core": "未完成的储水核心",
 
   "infinitewater.ponder.infinite_water.header": "无限水机器",
   "infinitewater.ponder.infinite_water.text_1": "无限水机器可以提供无限的水",

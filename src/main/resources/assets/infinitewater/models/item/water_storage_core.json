@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "infinitewater:item/water_storage_core"
+  }
+}

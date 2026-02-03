@@ -1,0 +1,70 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:precision_mechanism"
+  },
+  "transitional_item": {
+    "id": "infinitewater:incomplete_water_storage_core"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "infinitewater:incomplete_water_storage_core"
+        },
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ],
+      "results": [
+        {
+          "id": "infinitewater:incomplete_water_storage_core"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "infinitewater:incomplete_water_storage_core"
+        },
+        {
+          "item": "minecraft:heart_of_the_sea"
+        }
+      ],
+      "results": [
+        {
+          "id": "infinitewater:incomplete_water_storage_core"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "infinitewater:incomplete_water_storage_core"
+        },
+        {
+          "item": "minecraft:nether_star"
+        }
+      ],
+      "results": [
+        {
+          "id": "infinitewater:incomplete_water_storage_core"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "infinitewater:water_storage_core",
+      "chance": 0.8
+    },
+    {
+      "id": "create:precision_mechanism",
+      "chance": 0.2
+    }
+  ],
+  "loops": 1
+}

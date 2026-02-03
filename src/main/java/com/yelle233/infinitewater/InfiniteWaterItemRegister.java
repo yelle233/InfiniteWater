@@ -16,4 +16,9 @@ public class InfiniteWaterItemRegister {
 
     public static final DeferredItem<Item> INFINITE_WATER_BLOCK =
             ITEMS.register("infinite_water_block", () -> new InfiniteWaterBlockItem(InfiniteWaterBlockRegister.INFINITE_WATER_BLOCK.get(), new Item.Properties()));
+    public static final DeferredItem<Item> WATER_STORAGE_CORE=
+            ITEMS.register("water_storage_core", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> INCOMPLETE_WATER_STORAGE_CORE =
+            ITEMS.register("incomplete_water_storage_core",
+                    () -> new Item(new Item.Properties()));
 }

@@ -3,6 +3,9 @@
   "block.infinitewater.infinite_water_block": "Infinite Water Block",
   "infinitewater.infinite_water_block.tooltip1": "§6Insufficient stress§f,unable to supply water sources",
 
+  "item.infinitewater.water_storage_core": "§6Water Storage Core",
+  "item.infinitewater.incomplete_water_storage_core": "Incomplete Water Storage Core",
+
   "infinitewater.ponder.infinite_water.header": "Infinite Water Block",
   "infinitewater.ponder.infinite_water.text_1": "The Infinite Water Source can provide unlimited water",
   "infinitewater.ponder.infinite_water.text_2": "Enter the stress at the TOP or BOTTOM.",
