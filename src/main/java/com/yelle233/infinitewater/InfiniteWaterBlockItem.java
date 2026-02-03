@@ -61,6 +61,7 @@ public class InfiniteWaterBlockItem extends BlockItem {
         int level;
         String label;
 
+
         if (impact <= 4) {
             level = 1;
             label = "低";
