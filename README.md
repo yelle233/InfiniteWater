@@ -1,5 +1,8 @@
 # Create: Infinite Water（机械动力：无限水）
 
+
+![Create: Infinite Water LOGO](.idea/icon.png)
+
 一个基于 **Create（机械动力）** 的附属模组：新增一台可被动能网络驱动的机器，用于在满足应力条件时提供“可抽取的水源”。
 
 > 适用环境：Minecraft **1.21.1**（NeoForge）  
