@@ -6,6 +6,12 @@
   "item.infinitewater.water_storage_core": "§6Water Storage Core",
   "item.infinitewater.incomplete_water_storage_core": "Incomplete Water Storage Core",
 
+
+  "infinitewater.stress.level.low": "Low",
+  "infinitewater.stress.level.medium": "Medium",
+  "infinitewater.stress.level.high": "High",
+  "infinitewater.stress.level.extreme": "Extreme",
+
   "infinitewater.ponder.infinite_water.header": "Infinite Water Block",
   "infinitewater.ponder.infinite_water.text_1": "The Infinite Water Source can provide unlimited water",
   "infinitewater.ponder.infinite_water.text_2": "Enter the stress at the TOP or BOTTOM.",

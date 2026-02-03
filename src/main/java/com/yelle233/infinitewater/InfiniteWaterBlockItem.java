@@ -59,29 +59,30 @@ public class InfiniteWaterBlockItem extends BlockItem {
 
     private String getImpactBar(double impact) {
         int level;
-        String label;
-
+        String translationKey;
 
         if (impact <= 4) {
             level = 1;
-            label = "低";
+            translationKey = "infinitewater.stress.level.low";
         } else if (impact <= 8) {
             level = 2;
-            label = "中";
+            translationKey = "infinitewater.stress.level.medium";
         } else if (impact <= 16) {
             level = 3;
-            label = "高";
+            translationKey = "infinitewater.stress.level.high";
         } else {
             level = 4;
-            label = "极高";
+            translationKey = "infinitewater.stress.level.extreme";
         }
 
-        // 生成进度条 ████░░░░
-        StringBuilder bar = new StringBuilder(" ");
+
+        StringBuilder bar = new StringBuilder("[");
         for (int i = 0; i < 4; i++) {
             bar.append(i < level ? "█" : "░");
         }
-        bar.append(" ").append(label);
+        bar.append("] ");
+
+        bar.append(Component.translatable(translationKey).getString());
 
         return bar.toString();
     }
