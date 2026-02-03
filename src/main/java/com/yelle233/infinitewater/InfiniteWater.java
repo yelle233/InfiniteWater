@@ -50,6 +50,7 @@ public class InfiniteWater {
         InfiniteWaterItemRegister.ITEMS.register(modEventBus);
         InfiniteWaterTabRegister.TABS.register(modEventBus);
         modEventBus.addListener(this::registerCapabilities);
+        modEventBus.addListener(this::commonSetup);
         InfiniteWaterBlockEntity.BLOCK_ENTITY_TYPES.register(modEventBus);
 
     }
@@ -60,6 +61,15 @@ public class InfiniteWater {
                 InfiniteWaterBlockEntity.INFINITE_WATER_BLOCK_ENTITY.get(),
                 (be, side) -> be.getFluidHandler(side)
         );
+    }
+
+    private void commonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            BlockStressValues.IMPACTS.register(
+                    InfiniteWaterBlockRegister.INFINITE_WATER_BLOCK.get(),
+                    () -> 5000.0
+            );
+        });
     }
 
 

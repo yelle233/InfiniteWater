@@ -23,7 +23,7 @@ public class InfiniteWaterBlockPonderScenes {
         scene.idle(10);
 
         // 机器位置
-        BlockPos machine = util.grid().at(2, 1, 2);
+        BlockPos machine = util.grid().at(2, 2, 2);
 
         // 放置机器
         scene.world().setBlock(machine, InfiniteWaterBlockRegister.INFINITE_WATER_BLOCK.get().defaultBlockState(), false);
@@ -37,14 +37,6 @@ public class InfiniteWaterBlockPonderScenes {
                 .pointAt(util.vector().centerOf(machine));
         scene.idle(70);
 
-        // ==================== 应力输入说明 ====================
-
-        scene.overlay().showText(60)
-                .colored(PonderPalette.MEDIUM)
-                .text(LANG_PREFIX + "text_2")
-                .placeNearTarget()
-                .pointAt(util.vector().topOf(machine));
-        scene.idle(70);
 
         // 放置上下轴
         BlockPos shaftAbove = machine.above();
@@ -66,7 +58,7 @@ public class InfiniteWaterBlockPonderScenes {
 
         scene.overlay().showText(50)
                 .colored(PonderPalette.GREEN)
-                .text(LANG_PREFIX + "text_3")
+                .text(LANG_PREFIX + "text_2")
                 .placeNearTarget()
                 .pointAt(util.vector().topOf(shaftAbove));
         scene.idle(60);
@@ -75,7 +67,7 @@ public class InfiniteWaterBlockPonderScenes {
 
         scene.overlay().showText(80)
                 .colored(PonderPalette.RED)
-                .text(LANG_PREFIX + "text_4")
+                .text(LANG_PREFIX + "text_3")
                 .independent(40)
                 .placeNearTarget()
                 .pointAt(util.vector().centerOf(machine));
@@ -84,7 +76,7 @@ public class InfiniteWaterBlockPonderScenes {
         // 应力不足提示
         scene.overlay().showText(70)
                 .colored(PonderPalette.RED)
-                .text(LANG_PREFIX + "text_5")
+                .text(LANG_PREFIX + "text_4")
                 .placeNearTarget()
                 .pointAt(util.vector().centerOf(machine));
         scene.idle(80);
@@ -92,7 +84,7 @@ public class InfiniteWaterBlockPonderScenes {
         // 应力充足提示
         scene.overlay().showText(70)
                 .colored(PonderPalette.GREEN)
-                .text(LANG_PREFIX + "text_6")
+                .text(LANG_PREFIX + "text_5")
                 .placeNearTarget()
                 .pointAt(util.vector().centerOf(machine));
         scene.idle(80);
@@ -101,7 +93,7 @@ public class InfiniteWaterBlockPonderScenes {
 
         scene.overlay().showText(60)
                 .colored(PonderPalette.BLUE)
-                .text(LANG_PREFIX + "text_7")
+                .text(LANG_PREFIX + "text_6")
                 .placeNearTarget()
                 .pointAt(util.vector().centerOf(machine));
         scene.idle(70);
@@ -141,7 +133,7 @@ public class InfiniteWaterBlockPonderScenes {
 
         scene.overlay().showText(60)
                 .colored(PonderPalette.BLUE)
-                .text(LANG_PREFIX + "text_8")
+                .text(LANG_PREFIX + "text_7")
                 .placeNearTarget()
                 .pointAt(util.vector().centerOf(pipeNorth));
         scene.idle(70);
@@ -154,7 +146,7 @@ public class InfiniteWaterBlockPonderScenes {
 
         scene.overlay().showText(60)
                 .colored(PonderPalette.BLUE)
-                .text(LANG_PREFIX + "text_9")
+                .text(LANG_PREFIX + "text_8")
                 .placeNearTarget()
                 .pointAt(util.vector().centerOf(pump));
         scene.idle(70);

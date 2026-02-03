@@ -7,17 +7,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.checkerframework.checker.units.qual.C;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -25,13 +22,8 @@ import java.util.function.Supplier;
 
 public class InfiniteWaterBlockEntity extends KineticBlockEntity {
 
-//    private float lastImpact = -1;
     private static final float SPEED_THRESHOLD = 200f;
-
-    private float cachedRemainingStress = 0;
-    private boolean stressCacheValid = false;
-    private boolean canOutputClient = false;
-
+    private boolean isRunningCached = false;
 
     public InfiniteWaterBlockEntity(BlockPos pos, BlockState blockState) {
         super(INFINITE_WATER_BLOCK_ENTITY.get(), pos, blockState);
@@ -41,15 +33,10 @@ public class InfiniteWaterBlockEntity extends KineticBlockEntity {
 
     public static final Supplier<BlockEntityType<InfiniteWaterBlockEntity>> INFINITE_WATER_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(
             "infinite_water_block_entity",
-            // 方块实体类型，使用构建器创建。
             () -> BlockEntityType.Builder.of(
-                            // 用于构造方块实体实例的供应商。
                             InfiniteWaterBlockEntity::new,
-                            // 可以具有此方块实体的方块的变长参数。
-                            // 假设引用的方块是 DeferredBlock<Block>。
                             InfiniteWaterBlockRegister.INFINITE_WATER_BLOCK.get()
                     )
-                    // 使用 null 构建；原版对参数进行了一些数据修复操作，我们不需要。
                     .build(null)
     );
 
@@ -108,24 +95,53 @@ public class InfiniteWaterBlockEntity extends KineticBlockEntity {
 
 
     private boolean hasEnoughRemainingStress() {
-        if (level == null || level.isClientSide) return false;
-        if (getSpeed() == 0 || isOverStressed()) return false;
+        if (level == null) return false;
+        if (level.isClientSide) {
+            return isRunningCached;  // 客户端使用缓存值
+        }
         return Math.abs(getSpeed()) >= SPEED_THRESHOLD;
     }
 
     @Override
-    public boolean addToTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
+    protected void write(CompoundTag tag, HolderLookup.Provider registries, boolean clientPacket) {
+        super.write(tag, registries, clientPacket);
+        if (clientPacket) {
+            tag.putBoolean("Infinite_Water_Running", hasEnoughRemainingStress());
+        }
+    }
+
+    @Override
+    protected void read(CompoundTag tag, HolderLookup.Provider registries, boolean clientPacket) {
+        super.read(tag, registries, clientPacket);
+        if (clientPacket) {
+            isRunningCached = tag.getBoolean("Infinite_Water_Running");
+        }
+    }
+
+
+    @Override
+    public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
+        int before = tooltip.size();
         float currentSpeed = Math.abs(getSpeed());
         boolean active = currentSpeed >= SPEED_THRESHOLD;
+        super.addToGoggleTooltip(tooltip, isPlayerSneaking);
         if(!active) {
-            tooltip.add(Component.literal("显然转速不足，无法输出") );
+            tooltip.add(Component.empty());
+            tooltip.add(Component.literal("    " + Component.translatable("infinitewater.infinite_water_block.tooltip1").getString()));
         }
-        return true;
+        return tooltip.size() > before;
     }
 
     @Override
     public void tick() {
         super.tick();
+        if (level != null && !level.isClientSide) {
+            boolean running = hasEnoughRemainingStress();
+            if (running != isRunningCached) {
+                isRunningCached = running;
+                sendData();  // 触发同步
+            }
+        }
     }
 
 }

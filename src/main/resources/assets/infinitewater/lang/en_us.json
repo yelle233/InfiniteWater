@@ -1,16 +1,16 @@
 {
   "itemGroup.infinitewater": "Create:InfiniteWater Tab",
   "block.infinitewater.infinite_water_block": "Infinite Water Block",
+  "infinitewater.infinite_water_block.tooltip1": "§6Insufficient stress§f,unable to supply water sources",
 
   "infinitewater.ponder.infinite_water.header": "Infinite Water Block",
   "infinitewater.ponder.infinite_water.text_1": "The Infinite Water Source can provide unlimited water",
-  "infinitewater.ponder.infinite_water.text_2": "Rotational power can be input from TOP or BOTTOM",
-  "infinitewater.ponder.infinite_water.text_3": "Connect shafts here for power input",
-  "infinitewater.ponder.infinite_water.text_4": "Requires at least 1,000,000 SU of remaining stress capacity",
-  "infinitewater.ponder.infinite_water.text_5": "If stress is below 1,000,000 SU, water will NOT be supplied",
-  "infinitewater.ponder.infinite_water.text_6": "When stress >= 1,000,000 SU, unlimited water becomes available",
-  "infinitewater.ponder.infinite_water.text_7": "Water can be extracted from all four SIDES",
-  "infinitewater.ponder.infinite_water.text_8": "Connect pipes to any side to extract water",
-  "infinitewater.ponder.infinite_water.text_9": "Use Mechanical Pumps to extract water"
+  "infinitewater.ponder.infinite_water.text_2": "Enter the stress at the TOP or BOTTOM.",
+  "infinitewater.ponder.infinite_water.text_3": "Requires at least 1,000,000 su of remaining stress capacity",
+  "infinitewater.ponder.infinite_water.text_4": "If stress is below 1,000,000 su, water will NOT be supplied",
+  "infinitewater.ponder.infinite_water.text_5": "When stress >= 1,000,000 su, unlimited water becomes available",
+  "infinitewater.ponder.infinite_water.text_6": "Water can be extracted from all four SIDES",
+  "infinitewater.ponder.infinite_water.text_7": "Connect pipes to any side to extract water",
+  "infinitewater.ponder.infinite_water.text_8": "Use Mechanical Pumps to extract water"
 
 }

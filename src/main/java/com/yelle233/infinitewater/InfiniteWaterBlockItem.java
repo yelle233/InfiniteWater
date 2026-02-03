@@ -1,0 +1,87 @@
+package com.yelle233.infinitewater;
+
+import com.simibubi.create.api.stress.BlockStressValues;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.block.Block;
+
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class InfiniteWaterBlockItem extends BlockItem {
+
+    public InfiniteWaterBlockItem(Block block, Properties props) {
+        super(block, props);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack,
+                                TooltipContext ctx,
+                                List<Component> tooltip,
+                                TooltipFlag flag) {
+        super.appendHoverText(stack, ctx, tooltip, flag);
+
+        double impact = BlockStressValues.getImpact(getBlock());
+
+        if (impact > 0) {
+            tooltip.add(Component.empty());
+            tooltip.add(Component.translatable("create.tooltip.stressImpact")
+                    .withStyle(ChatFormatting.GRAY));
+
+            String impactStr = String.format("%.1f", impact);
+            ChatFormatting levelColor = getImpactColor(impact);
+            String levelBar = getImpactBar(impact);
+
+            MutableComponent line = Component.literal(" " + impactStr + "x ")
+                    .withStyle(ChatFormatting.AQUA)
+                    .append(Component.translatable("create.generic.unit.rpm")
+                            .withStyle(ChatFormatting.DARK_GRAY));
+
+            tooltip.add(line);
+
+            tooltip.add(Component.literal(" " + levelBar)
+                    .withStyle(levelColor));
+        }
+    }
+
+
+    private ChatFormatting getImpactColor(double impact) {
+        if (impact <= 4) return ChatFormatting.GREEN;
+        if (impact <= 8) return ChatFormatting.YELLOW;
+        if (impact <= 16) return ChatFormatting.GOLD;
+        return ChatFormatting.RED;
+    }
+
+
+    private String getImpactBar(double impact) {
+        int level;
+        String label;
+
+        if (impact <= 4) {
+            level = 1;
+            label = "低";
+        } else if (impact <= 8) {
+            level = 2;
+            label = "中";
+        } else if (impact <= 16) {
+            level = 3;
+            label = "高";
+        } else {
+            level = 4;
+            label = "极高";
+        }
+
+        // 生成进度条 ████░░░░
+        StringBuilder bar = new StringBuilder(" ");
+        for (int i = 0; i < 4; i++) {
+            bar.append(i < level ? "█" : "░");
+        }
+        bar.append(" ").append(label);
+
+        return bar.toString();
+    }
+}
