@@ -19,6 +19,29 @@
 - 支持 Create 护目镜信息显示（可展示运行状态、阈值等）
 - 支持 Ponder 思索教程（演示接入方式与阈值条件）
 
+###  Customization | 自定义
+
+#### Configuration | 配置文件
+Edit `config/infinitewater-server.toml` to adjust:
+
+编辑配置文件可调整：
+
+
+- **转速阈值** - 转速阈值（默认值：200 RPM）
+- **应力影响** - 1RPM所消耗的应力（默认值：5000 SU/RPM）
+
+
+
+###  KubeJS 支持
+
+您可以修改：
+- 所有的制作配方
+- 应力阈值
+
+
+**注意：** 转速阈值只能通过配置文件修改，KubeJS 无法修改。
+
+
 ---
 
 ## 安装与依赖
