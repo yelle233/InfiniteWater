@@ -1,15 +1,14 @@
 package com.yelle233.infinitewater.ponder;
 
 import com.simibubi.create.AllBlocks;
-import com.yelle233.infinitewater.InfiniteWaterBlockRegister;
-import com.yelle233.infinitewater.InfiniteWaterConfig;
+import com.yelle233.infinitewater.register.InfiniteWaterBlockRegister;
+import com.yelle233.infinitewater.config.InfiniteWaterConfig;
 import net.createmod.ponder.api.PonderPalette;
 import net.createmod.ponder.api.scene.SceneBuilder;
 import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class InfiniteWaterBlockPonderScenes {

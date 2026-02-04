@@ -1,6 +1,7 @@
 package com.yelle233.infinitewater;
 
 import com.simibubi.create.content.kinetics.base.SingleAxisRotatingVisual;
+import com.yelle233.infinitewater.block.InfiniteWaterBlockEntity;
 import com.yelle233.infinitewater.ponder.InfiniteWaterBlockPonderPlugin;
 import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
 import net.createmod.ponder.foundation.PonderIndex;

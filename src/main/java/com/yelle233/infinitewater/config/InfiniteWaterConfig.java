@@ -1,4 +1,4 @@
-package com.yelle233.infinitewater;
+package com.yelle233.infinitewater.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 

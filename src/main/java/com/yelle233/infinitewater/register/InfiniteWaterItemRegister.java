@@ -1,13 +1,10 @@
-package com.yelle233.infinitewater;
+package com.yelle233.infinitewater.register;
 
-import net.minecraft.core.registries.BuiltInRegistries;
+import com.yelle233.infinitewater.InfiniteWater;
+import com.yelle233.infinitewater.item.InfiniteWaterBlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.function.Supplier;
 
 public class InfiniteWaterItemRegister {
 

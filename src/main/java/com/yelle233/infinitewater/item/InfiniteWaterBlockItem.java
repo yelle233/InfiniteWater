@@ -1,4 +1,4 @@
-package com.yelle233.infinitewater;
+package com.yelle233.infinitewater.item;
 
 import com.simibubi.create.api.stress.BlockStressValues;
 import net.minecraft.ChatFormatting;
@@ -9,7 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Block;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
 public class InfiniteWaterBlockItem extends BlockItem {

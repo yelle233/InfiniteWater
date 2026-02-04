@@ -1,6 +1,9 @@
-package com.yelle233.infinitewater;
+package com.yelle233.infinitewater.block;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
+import com.yelle233.infinitewater.InfiniteWater;
+import com.yelle233.infinitewater.register.InfiniteWaterBlockRegister;
+import com.yelle233.infinitewater.config.InfiniteWaterConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -13,8 +16,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.checkerframework.checker.units.qual.C;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;

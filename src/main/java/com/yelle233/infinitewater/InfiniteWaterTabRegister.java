@@ -1,5 +1,7 @@
 package com.yelle233.infinitewater;
 
+import com.yelle233.infinitewater.register.InfiniteWaterBlockRegister;
+import com.yelle233.infinitewater.register.InfiniteWaterItemRegister;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

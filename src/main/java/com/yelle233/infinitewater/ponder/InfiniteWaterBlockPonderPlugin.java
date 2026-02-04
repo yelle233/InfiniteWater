@@ -1,10 +1,9 @@
 package com.yelle233.infinitewater.ponder;
 
 import com.yelle233.infinitewater.InfiniteWater;
-import com.yelle233.infinitewater.InfiniteWaterBlockRegister;
+import com.yelle233.infinitewater.register.InfiniteWaterBlockRegister;
 import net.createmod.ponder.api.registration.PonderPlugin;
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
-import net.createmod.ponder.api.registration.PonderTagRegistrationHelper;
 import net.minecraft.resources.ResourceLocation;
 
 public class InfiniteWaterBlockPonderPlugin implements PonderPlugin {
