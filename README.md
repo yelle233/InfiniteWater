@@ -3,7 +3,7 @@
 
 <img src="src/main/resources/assets/infinitewater/logo/logo.png" width="200" />
 
-一个基于 **Create（机械动力）** 的附属模组：新增一台可被动能网络驱动的机器，用于在满足应力条件时提供“可抽取的水源”。
+一个基于 **Create（机械动力）** 的附属模组：新增一台可被动能网络驱动的机器，用于在满足应力条件时提供“可抽取的水源”。这个模组几乎可以给所有的其他模组进行供水，满足了那些既想追求数值上的平衡，又想寻求简洁性的玩家。
 
 > 适用环境：Minecraft **1.21.1**（NeoForge）  
 > 依赖：Create / Flywheel / Ponder
