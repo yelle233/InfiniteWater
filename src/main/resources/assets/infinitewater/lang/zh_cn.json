@@ -2,6 +2,7 @@
   "itemGroup.infinitewater": "机械动力:无限水",
   "block.infinitewater.infinite_water_block": "无限水机器",
   "infinitewater.infinite_water_block.tooltip1": "§6应力不足§f,无法供应水源",
+  "infinitewater.infinite_water_block.tooltip2": "所需应力:",
 
   "item.infinitewater.water_storage_core": "§6储水核心",
   "item.infinitewater.incomplete_water_storage_core": "未完成的储水核心",
@@ -13,13 +14,15 @@
 
   "infinitewater.ponder.infinite_water.header": "无限水机器",
   "infinitewater.ponder.infinite_water.text_1": "无限水机器可以提供无限的水",
-  "infinitewater.ponder.infinite_water.text_2": "在顶部或底部输入应力",
-  "infinitewater.ponder.infinite_water.text_3": "需要至少 1,000,000 su 的应力",
-  "infinitewater.ponder.infinite_water.text_4": "当应力低于 1,000,000 su 时，将不会提供水",
-  "infinitewater.ponder.infinite_water.text_5": "当应力大于等于 1,000,000 su 时，可以提供无限水",
-  "infinitewater.ponder.infinite_water.text_6": "水可以从四个侧面抽取",
-  "infinitewater.ponder.infinite_water.text_7": "将管道连接到任意侧面以抽取水",
-  "infinitewater.ponder.infinite_water.text_8": "使用动力泵抽取水"
+  "infinitewater.ponder.infinite_water.text_2": "应力可以从顶部或底部输入",
+  "infinitewater.ponder.infinite_water.text_3": "在此输入应力",
+  "infinitewater.ponder.infinite_water.text_4": "需要达到所需应力才能激活",
+  "infinitewater.ponder.infinite_water.text_5": "应力不足时将不会供应水",
+  "infinitewater.ponder.infinite_water.text_6": "达到应力阈值后即可提供无限水",
+  "infinitewater.ponder.infinite_water.text_7": "水可以从四个侧面抽取",
+  "infinitewater.ponder.infinite_water.text_8": "将管道连接到任意侧面以抽取水",
+  "infinitewater.ponder.infinite_water.text_9": "使用动力泵抽取水",
+  "infinitewater.ponder.infinite_water.text_10": "所需应力:"
 
 
 }

@@ -1,7 +1,8 @@
 {
-  "itemGroup.infinitewater": "Create:InfiniteWater Tab",
+  "itemGroup.infinitewater": "Create:Infinite Water",
   "block.infinitewater.infinite_water_block": "Infinite Water Block",
   "infinitewater.infinite_water_block.tooltip1": "§6Insufficient stress§f,unable to supply water sources",
+  "infinitewater.infinite_water_block.tooltip2": "Required Stess:",
 
   "item.infinitewater.water_storage_core": "§6Water Storage Core",
   "item.infinitewater.incomplete_water_storage_core": "Incomplete Water Storage Core",
@@ -13,13 +14,16 @@
   "infinitewater.stress.level.extreme": "Extreme",
 
   "infinitewater.ponder.infinite_water.header": "Infinite Water Block",
-  "infinitewater.ponder.infinite_water.text_1": "The Infinite Water Source can provide unlimited water",
-  "infinitewater.ponder.infinite_water.text_2": "Enter the stress at the TOP or BOTTOM.",
-  "infinitewater.ponder.infinite_water.text_3": "Requires at least 1,000,000 su of remaining stress capacity",
-  "infinitewater.ponder.infinite_water.text_4": "If stress is below 1,000,000 su, water will NOT be supplied",
-  "infinitewater.ponder.infinite_water.text_5": "When stress >= 1,000,000 su, unlimited water becomes available",
-  "infinitewater.ponder.infinite_water.text_6": "Water can be extracted from all four SIDES",
-  "infinitewater.ponder.infinite_water.text_7": "Connect pipes to any side to extract water",
-  "infinitewater.ponder.infinite_water.text_8": "Use Mechanical Pumps to extract water"
+  "infinitewater.ponder.infinite_water.text_1": "The Infinite Water Block can provide an unlimited supply of water.",
+  "infinitewater.ponder.infinite_water.text_2": "Stress can be input from either the top or the bottom.",
+  "infinitewater.ponder.infinite_water.text_3": "Input stress here.",
+  "infinitewater.ponder.infinite_water.text_4": "The required stress must be reached to activate the block.",
+  "infinitewater.ponder.infinite_water.text_5": "If the stress is insufficient, no water will be supplied.",
+  "infinitewater.ponder.infinite_water.text_6": "Once the stress threshold is met, the block will provide infinite water.",
+  "infinitewater.ponder.infinite_water.text_7": "Water can be extracted from all four sides.",
+  "infinitewater.ponder.infinite_water.text_8": "Connect pipes to any side to extract water.",
+  "infinitewater.ponder.infinite_water.text_9": "Use a Mechanical Pump to extract the water.",
+  "infinitewater.ponder.infinite_water.text_10": "Required Stress:"
+
 
 }

@@ -22,7 +22,7 @@ import java.util.function.Supplier;
 
 public class InfiniteWaterBlockEntity extends KineticBlockEntity {
 
-    private static final float SPEED_THRESHOLD = 200f;
+
     private boolean isRunningCached = false;
 
     public InfiniteWaterBlockEntity(BlockPos pos, BlockState blockState) {
@@ -89,8 +89,9 @@ public class InfiniteWaterBlockEntity extends KineticBlockEntity {
 
     @Override
     public float calculateStressApplied() {
-        this.lastStressApplied=5000.0f;
-        return 5000.0f;
+        float impact = InfiniteWaterConfig.STRESS_IMPACT.get().floatValue();
+        this.lastStressApplied=impact;
+        return impact;
     }
 
 
@@ -99,7 +100,11 @@ public class InfiniteWaterBlockEntity extends KineticBlockEntity {
         if (level.isClientSide) {
             return isRunningCached;  // 客户端使用缓存值
         }
-        return Math.abs(getSpeed()) >= SPEED_THRESHOLD;
+        if(InfiniteWaterConfig.STRESS_IMPACT.get().floatValue()==0.0){
+            return true;
+        }
+        float threshold = InfiniteWaterConfig.SPEED_THRESHOLD.get().floatValue();
+        return Math.abs(getSpeed()) >= threshold;
     }
 
     @Override
@@ -123,11 +128,16 @@ public class InfiniteWaterBlockEntity extends KineticBlockEntity {
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
         int before = tooltip.size();
         float currentSpeed = Math.abs(getSpeed());
-        boolean active = currentSpeed >= SPEED_THRESHOLD;
+        float threshold = InfiniteWaterConfig.SPEED_THRESHOLD.get().floatValue();
+        boolean active = currentSpeed >= threshold;
         super.addToGoggleTooltip(tooltip, isPlayerSneaking);
         if(!active) {
-            tooltip.add(Component.empty());
-            tooltip.add(Component.literal("    " + Component.translatable("infinitewater.infinite_water_block.tooltip1").getString()));
+            if(InfiniteWaterConfig.SPEED_THRESHOLD.get().floatValue()>0&&InfiniteWaterConfig.STRESS_IMPACT.get().floatValue()>0){
+                tooltip.add(Component.empty());
+                tooltip.add(Component.literal("    " + Component.translatable("infinitewater.infinite_water_block.tooltip2").getString()+" §b"+String.format("%.0f", InfiniteWaterConfig.SPEED_THRESHOLD.get().floatValue()*InfiniteWaterConfig.STRESS_IMPACT.get().floatValue()) + " §bsu"));
+                tooltip.add(Component.literal("    " + Component.translatable("infinitewater.infinite_water_block.tooltip1").getString()));
+            }
+
         }
         return tooltip.size() > before;
     }

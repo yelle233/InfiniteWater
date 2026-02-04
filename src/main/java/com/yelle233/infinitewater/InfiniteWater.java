@@ -52,7 +52,7 @@ public class InfiniteWater {
         modEventBus.addListener(this::registerCapabilities);
         modEventBus.addListener(this::commonSetup);
         InfiniteWaterBlockEntity.BLOCK_ENTITY_TYPES.register(modEventBus);
-
+        modContainer.registerConfig(ModConfig.Type.SERVER, InfiniteWaterConfig.SPEC);
     }
 
     private void registerCapabilities(RegisterCapabilitiesEvent event) {
@@ -67,7 +67,7 @@ public class InfiniteWater {
         event.enqueueWork(() -> {
             BlockStressValues.IMPACTS.register(
                     InfiniteWaterBlockRegister.INFINITE_WATER_BLOCK.get(),
-                    () -> 5000.0
+                    () -> InfiniteWaterConfig.STRESS_IMPACT.get()
             );
         });
     }
